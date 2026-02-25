@@ -3,22 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cerberus</title>
+<title>Cerberus Hub</title>
 
 <style>
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-    margin:0;
-    min-height:100vh;
     background:#050a0a;
     overflow:hidden;
+    font-family:Arial, sans-serif;
 }
 
+/* Фон */
 #particles-js{
     position:fixed;
     inset:0;
     z-index:0;
+}
+
+/* Контейнер иконок */
+.icons{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:60px;
+    height:100vh;
+}
+
+/* Карточка */
+.card{
+    width:220px;
+    height:260px;
+    background:rgba(0,255,157,0.05);
+    border:1px solid rgba(0,255,157,0.2);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.card img{
+    width:140px;
+    height:140px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#00ff9d;
+    letter-spacing:2px;
+}
+
+/* Hover эффект */
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 30px #00ff9d;
+    border:1px solid #00ff9d;
 }
 </style>
 </head>
@@ -27,62 +73,49 @@ body{
 
 <div id="particles-js"></div>
 
+<div class="icons">
+
+    <div class="card">
+        <img src="https://i.ibb.co/LdGbkHf/CES-color.png">
+        <h3>CERBERUS</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://cdn.itemsatis.com/uploads/post_images/zolo-cheat-8-gunluk-key-2890864.png">
+        <h3>ZOLO</h3>
+    </div>
+
+    <div class="card">
+        <img src="https://up-game.pro/wp-content/webp-express/webp-images/uploads/2025/03/Star-для-PUBG-Mobile-IOS-1-388x218.jpg.webp">
+        <h3>STAR</h3>
+    </div>
+
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
 particlesJS("particles-js", {
-  "particles": {
-    "number": {
-      "value": 95,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
+  particles: {
+    number: { value: 95, density: { enable: true, value_area: 800 }},
+    color: { value: "#00ff9d" },
+    shape: { type: "circle" },
+    opacity: { value: 0.6 },
+    size: { value: 2.4, random: true },
+    line_linked: {
+      enable: true,
+      distance: 170,
+      color: "#00ff9d",
+      opacity: 0.6,
+      width: 1.4
     },
-    "color": {
-      "value": "#00ff9d"
-    },
-    "shape": {
-      "type": "circle"
-    },
-    "opacity": {
-      "value": 0.6
-    },
-    "size": {
-      "value": 2.4,
-      "random": true
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 170,
-      "color": "#00ff9d",
-      "opacity": 0.55,
-      "width": 1.4
-    },
-    "move": {
-      "enable": true,
-      "speed": 1.3
-    }
+    move: { enable: true, speed: 1.3 }
   },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "grab"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 220,
-        "line_linked": {
-          "opacity": 0.8
-        }
-      }
-    }
+  interactivity: {
+    events: { onhover: { enable: true, mode: "grab" }},
+    modes: { grab: { distance: 220, line_linked: { opacity: 0.8 }}}
   },
-  "retina_detect": true
+  retina_detect: true
 });
 </script>
 
