@@ -7,7 +7,7 @@
 <style>
 body{
     margin:0;
-    background:#001018;
+    background:#050505;
     overflow:hidden;
 }
 #particles-js{
@@ -26,15 +26,25 @@ body{
 <script>
 particlesJS("particles-js", {
   particles:{
-    number:{ value:100 },
+    number:{
+      value:130,
+      density:{ enable:true, value_area:900 }
+    },
     color:{ value:"#00ccff" },
     shape:{ type:"circle" },
+    opacity:{ value:0.8 },
+    size:{ value:3, random:true },
     line_linked:{
       enable:true,
-      distance:170,
+      distance:180,
       color:"#00ccff",
-      opacity:0.8,
-      width:1.5
+      opacity:0.9,
+      width:1.6
+    }
+  },
+  interactivity:{
+    events:{
+      onhover:{ enable:true, mode:"grab" }
     }
   }
 });
