@@ -2,17 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cerberus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CERBERUS</title>
 
 <style>
-body{
+*{
     margin:0;
-    background:#051a15;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050a0a;
+    font-family:Arial, sans-serif;
     overflow:hidden;
 }
+
+/* фон particles */
 #particles-js{
     position:fixed;
     inset:0;
+    z-index:0;
 }
 </style>
 </head>
@@ -26,14 +36,19 @@ body{
 <script>
 particlesJS("particles-js", {
   particles:{
-    number:{ value:100 },
+    number:{
+      value:100,
+      density:{ enable:true, value_area:900 }
+    },
     color:{ value:"#00ff99" },
     shape:{ type:"circle" },
+    opacity:{ value:0.8 },
+    size:{ value:3, random:true },
     line_linked:{
       enable:true,
       distance:170,
       color:"#00ff99",
-      opacity:0.8,
+      opacity:0.9,
       width:1.5
     }
   }
