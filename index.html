@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VOID FQ</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin:0;
+    min-height:100vh;
+    background-image: url("https://majestic-rp.ru/images/home/showcase/cover.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color:white;
+}
+
+/* затемнение */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index:1;
+}
+
+/* логотип */
+.brand-logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    z-index: 5;
+    mix-blend-mode: screen;
+}
+
+/* центр */
+.center {
+    position: relative;
+    z-index: 3;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    max-width:900px;
+    margin:auto;
+    min-height:100vh;
+}
+
+/* текст */
+.text-block {
+    font-size:18px;
+    line-height:1.5;
+    max-width:800px;
+    text-shadow: 0 0 6px rgba(0,0,0,0.9);
+}
+
+/* кнопки */
+.buttons {
+    margin-top:40px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.btn {
+    padding:18px 50px;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:50px;
+    text-decoration:none;
+    color:#111;
+    background: linear-gradient(45deg,#d4af37,#b8860b);
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(212,175,55,0.8);
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+<img src="logo.png" class="brand-logo" alt="VOID logo">
+
+<div class="center">
+    <div class="text-block">
+🔥 <b>VOID — сила, стиль и дисциплина.</b> 🔥 <br><br>
+
+Наша фама VOID — одна из самых сильных и организованных на проекте Majestic Role Play, сервер Miami.<br><br>
+
+Мы не просто играем — мы доминируем.<br>
+Стабильный онлайн, сильный состав, чёткая координация и уважение внутри коллектива.<br><br>
+
+⚔️ Войны? — Мы там.<br>
+💰 Бизнес? — Мы в деле.<br>
+🏆 Конкуренция? — Мы создаём её.<br><br>
+
+VOID — это не просто название.<br>
+Это репутация.<br>
+Это уровень.<br>
+Это стиль игры.<br><br>
+
+💜 VOID — будь частью легенды.
+    </div>
+
+    <div class="buttons">
+        <a class="btn" href="rules.html">📜 Правила семьи</a>
+        <a class="btn" href="https://discord.gg/E6P5Jgr6" target="_blank">
+            👑 СТАТЬ КОРОЛЁМ
+        </a>
+        <a class="btn" href="members.html">
+            👥 Список участников
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
