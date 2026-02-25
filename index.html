@@ -1,126 +1,90 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cerberus</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerberus</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+*{box-sizing:border-box;}
 
-    body{
-      margin:0;
-      min-height:100vh;
-      background:#0a0c10;
-      color:#fff;
-      font-family: Arial, sans-serif;
-      overflow-x:hidden;
-    }
+body{
+    margin:0;
+    min-height:100vh;
+    background:#050a0a;
+    overflow:hidden;
+}
 
-    /* Контейнер для эффекта */
-    #particles-js{
-      position:fixed;
-      inset:0;
-      z-index:0;
-      background: radial-gradient(circle at top, rgba(0,255,170,0.10), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(0,255,170,0.06), transparent 60%);
-    }
-
-    /* Небольшое затемнение, чтобы было “как у них” */
-    .overlay{
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,0.55);
-      z-index:1;
-    }
-
-    /* Твой контент поверх */
-    .content{
-      position:relative;
-      z-index:2;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:40px;
-    }
-
-    .card{
-      width:min(900px, 92vw);
-      background: rgba(10, 20, 18, 0.55);
-      border-radius:22px;
-      padding:34px 28px;
-      box-shadow: 0 0 40px rgba(0,255,170,0.18);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(0,255,170,0.20);
-    }
-
-    h1{
-      margin:0 0 10px;
-      letter-spacing:6px;
-      font-size: clamp(32px, 4vw, 56px);
-      color:#00ffb0;
-      text-shadow: 0 0 18px rgba(0,255,170,0.55);
-    }
-
-    p{
-      margin:0;
-      opacity:0.75;
-      font-size:18px;
-      line-height:1.5;
-    }
-  </style>
+#particles-js{
+    position:fixed;
+    inset:0;
+    z-index:0;
+}
+</style>
 </head>
 
 <body>
-  <!-- Эффект -->
-  <div id="particles-js"></div>
-  <div class="overlay"></div>
 
-  <!-- Контент -->
-  <div class="content">
-    <div class="card">
-      <h1>CERBERUS</h1>
-      <p>Фон: точки + линии (как “STATUS BYPASS”).</p>
-    </div>
-  </div>
+<div id="particles-js"></div>
 
-  <!-- Библиотека -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- Настройки эффекта -->
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 70, "density": { "enable": true, "value_area": 900 } },
-        "color": { "value": "#00ffb0" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.35 },
-        "size": { "value": 2.2, "random": true },
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 95,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#00ff9d"
+    },
+    "shape": {
+      "type": "circle"
+    },
+    "opacity": {
+      "value": 0.6
+    },
+    "size": {
+      "value": 2.4,
+      "random": true
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 170,
+      "color": "#00ff9d",
+      "opacity": 0.55,
+      "width": 1.4
+    },
+    "move": {
+      "enable": true,
+      "speed": 1.3
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "grab"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 220,
         "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#00ffb0",
-          "opacity": 0.22,
-          "width": 1
-        },
-        "move": { "enable": true, "speed": 1.0 }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" },
-          "resize": true
-        },
-        "modes": {
-          "grab": { "distance": 180, "line_linked": { "opacity": 0.35 } },
-          "push": { "particles_nb": 2 }
+          "opacity": 0.8
         }
-      },
-      "retina_detect": true
-    });
-  </script>
+      }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+
 </body>
 </html>
