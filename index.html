@@ -6,7 +6,11 @@
 <title>VOID</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     background:#050a0a;
@@ -14,12 +18,14 @@ body{
     overflow:hidden;
 }
 
+/* фон */
 #particles-js{
     position:fixed;
     inset:0;
     z-index:0;
 }
 
+/* контейнер */
 .icons{
     position:relative;
     z-index:2;
@@ -27,29 +33,38 @@ body{
     justify-content:center;
     align-items:center;
     height:100vh;
-    gap:60px;
+    gap:80px;
 }
 
+/* карточка */
 .card{
+    width:200px;
     text-decoration:none;
     text-align:center;
     transition:0.3s;
 }
 
+/* квадратная картинка */
 .card img{
     width:170px;
+    height:170px;
+    object-fit:cover;
     border-radius:20px;
+    background:#000;
+    padding:10px;
     transition:0.3s;
 }
 
+/* текст */
 .card span{
     display:block;
-    margin-top:15px;
+    margin-top:20px;
     color:#00ff99;
     font-size:22px;
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
+/* hover эффект */
 .card:hover img{
     transform:scale(1.1);
     box-shadow:0 0 25px #00ff99;
@@ -85,17 +100,25 @@ body{
 <script>
 particlesJS("particles-js", {
   particles:{
-    number:{ value:110 },
+    number:{
+      value:130,
+      density:{ enable:true, value_area:900 }
+    },
     color:{ value:"#00ff99" },
     shape:{ type:"circle" },
-    opacity:{ value:0.6 },
-    size:{ value:3 },
+    opacity:{ value:0.8 },
+    size:{ value:3, random:true },
     line_linked:{
       enable:true,
-      distance:170,
+      distance:180,
       color:"#00ff99",
-      opacity:0.8,
-      width:1.4
+      opacity:0.9,
+      width:1.6
+    }
+  },
+  interactivity:{
+    events:{
+      onhover:{ enable:true, mode:"grab" }
     }
   }
 });
