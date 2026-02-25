@@ -30,7 +30,7 @@ body{
     position:fixed;
     top:25px;
     left:25px;
-    z-index:2;
+    z-index:3;
     padding:12px 25px;
     background:transparent;
     border:2px solid #00ff99;
@@ -46,6 +46,33 @@ body{
     color:#050a0a;
     box-shadow:0 0 20px #00ff99;
 }
+
+/* видео контейнер */
+.video-container{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* iframe стиль */
+.video-container iframe{
+    width:900px;
+    height:500px;
+    border:none;
+    border-radius:12px;
+    box-shadow:0 0 40px rgba(0,255,153,0.4);
+}
+
+/* адаптив */
+@media(max-width:1000px){
+    .video-container iframe{
+        width:90%;
+        height:400px;
+    }
+}
 </style>
 </head>
 
@@ -53,41 +80,32 @@ body{
 
 <div id="particles-js"></div>
 
-<!-- кнопка -->
 <a href="https://biianhlong.io.vn/update/Loader4.2.rar" class="download-btn" download>
     DOWNLOAD LOADER
 </a>
+
+<div class="video-container">
+    <iframe src="https://drive.google.com/file/d/1XCsPAq7C4jEd5udprWTFJQElvOZzkNNw/preview"
+            allow="autoplay">
+    </iframe>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
 particlesJS("particles-js", {
   particles:{
-    number:{
-      value:110,
-      density:{ enable:true, value_area:900 }
-    },
+    number:{ value:110, density:{ enable:true, value_area:900 } },
     color:{ value:"#00ff99" },
     shape:{ type:"circle" },
     opacity:{ value:0.85 },
     size:{ value:3, random:true },
-    line_linked:{
-      enable:true,
-      distance:170,
-      color:"#00ff99",
-      opacity:0.9,
-      width:1.5
-    },
+    line_linked:{ enable:true, distance:170, color:"#00ff99", opacity:0.9, width:1.5 },
     move:{ enable:true, speed:1.2 }
   },
   interactivity:{
-    events:{
-      onhover:{ enable:true, mode:"grab" },
-      resize:true
-    },
-    modes:{
-      grab:{ distance:220, line_linked:{ opacity:1 } }
-    }
+    events:{ onhover:{ enable:true, mode:"grab" }, resize:true },
+    modes:{ grab:{ distance:220, line_linked:{ opacity:1 } } }
   },
   retina_detect:true
 });
