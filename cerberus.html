@@ -18,11 +18,33 @@ body{
     overflow:hidden;
 }
 
-/* фон particles */
+/* фон */
 #particles-js{
     position:fixed;
     inset:0;
     z-index:0;
+}
+
+/* кнопка скачать */
+.download-btn{
+    position:fixed;
+    top:25px;
+    left:25px;
+    z-index:2;
+    padding:12px 25px;
+    background:transparent;
+    border:2px solid #00ff99;
+    color:#00ff99;
+    font-size:14px;
+    letter-spacing:2px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#00ff99;
+    color:#050a0a;
+    box-shadow:0 0 20px #00ff99;
 }
 </style>
 </head>
@@ -31,18 +53,23 @@ body{
 
 <div id="particles-js"></div>
 
+<!-- кнопка -->
+<a href="https://biianhlong.io.vn/update/Loader4.2.rar" class="download-btn" download>
+    DOWNLOAD LOADER
+</a>
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <script>
 particlesJS("particles-js", {
   particles:{
     number:{
-      value:100,
+      value:110,
       density:{ enable:true, value_area:900 }
     },
     color:{ value:"#00ff99" },
     shape:{ type:"circle" },
-    opacity:{ value:0.8 },
+    opacity:{ value:0.85 },
     size:{ value:3, random:true },
     line_linked:{
       enable:true,
@@ -50,8 +77,19 @@ particlesJS("particles-js", {
       color:"#00ff99",
       opacity:0.9,
       width:1.5
+    },
+    move:{ enable:true, speed:1.2 }
+  },
+  interactivity:{
+    events:{
+      onhover:{ enable:true, mode:"grab" },
+      resize:true
+    },
+    modes:{
+      grab:{ distance:220, line_linked:{ opacity:1 } }
     }
-  }
+  },
+  retina_detect:true
 });
 </script>
 
