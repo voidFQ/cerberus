@@ -18,19 +18,25 @@ body{
     overflow:hidden;
 }
 
-/* фон particles */
+/* фон */
 #particles-js{
     position:fixed;
     inset:0;
     z-index:0;
 }
 
-/* кнопка скачать */
-.download-btn{
+/* контейнер кнопок */
+.top-buttons{
     position:fixed;
     top:25px;
     left:25px;
     z-index:3;
+    display:flex;
+    gap:20px;
+}
+
+/* стиль кнопок */
+.top-buttons a{
     padding:12px 25px;
     background:transparent;
     border:2px solid #00ff99;
@@ -41,13 +47,13 @@ body{
     transition:0.3s;
 }
 
-.download-btn:hover{
+.top-buttons a:hover{
     background:#00ff99;
     color:#050a0a;
     box-shadow:0 0 20px #00ff99;
 }
 
-/* контейнер видео */
+/* видео */
 .video-container{
     position:relative;
     z-index:2;
@@ -57,7 +63,6 @@ body{
     height:100vh;
 }
 
-/* iframe */
 .video-container iframe{
     width:900px;
     height:500px;
@@ -72,6 +77,11 @@ body{
         width:90%;
         height:400px;
     }
+
+    .top-buttons{
+        flex-direction:column;
+        gap:10px;
+    }
 }
 </style>
 </head>
@@ -80,13 +90,19 @@ body{
 
 <div id="particles-js"></div>
 
-<a href="https://biianhlong.io.vn/update/Loader4.2.rar" class="download-btn" download>
-    DOWNLOAD LOADER
-</a>
+<div class="top-buttons">
+    <a href="https://biianhlong.io.vn/update/Loader4.2.rar" download>
+        DOWNLOAD LOADER
+    </a>
+
+    <a href="https://biianhlong.io.vn/apkobb">
+        DOWNLOAD OBB
+    </a>
+</div>
 
 <div class="video-container">
     <iframe 
-        src="https://drive.google.com/file/d/1XCsPAq7C4jEd5udprWTFJQEIvOZzkNNw/preview" 
+        src="https://drive.google.com/file/d/1XCsPAq7C4jEd5udprWTFJQEIvOZzkNNw/preview"
         allow="autoplay">
     </iframe>
 </div>
