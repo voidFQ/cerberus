@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Zolo</title>
+
+<style>
+body{
+    margin:0;
+    background:#100018;
+    overflow:hidden;
+}
+#particles-js{
+    position:fixed;
+    inset:0;
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles:{
+    number:{ value:100 },
+    color:{ value:"#b300ff" },
+    shape:{ type:"circle" },
+    line_linked:{
+      enable:true,
+      distance:170,
+      color:"#b300ff",
+      opacity:0.8,
+      width:1.5
+    }
+  }
+});
+</script>
+
+</body>
+</html>
