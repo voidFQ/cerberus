@@ -18,7 +18,7 @@ body{
     overflow:hidden;
 }
 
-/* particles фон */
+/* particles */
 #particles-js{
     position:fixed;
     inset:0;
@@ -44,7 +44,6 @@ body{
     transition:0.3s;
 }
 
-/* стандартные картинки */
 .card img{
     width:160px;
     height:160px;
@@ -54,7 +53,7 @@ body{
     transition:0.3s;
 }
 
-/* ZOLO только круг */
+/* ZOLO круг */
 .zolo img{
     border-radius:50%;
 }
@@ -72,6 +71,35 @@ body{
 .card:hover img{
     transform:scale(1.1);
     filter:drop-shadow(0 0 22px #00ff99);
+}
+
+/* 📱 АДАПТИВ */
+@media (max-width: 900px){
+
+    body{
+        overflow:auto;
+    }
+
+    .icons{
+        flex-direction:column;
+        height:auto;
+        padding:60px 0;
+        gap:60px;
+    }
+
+    .card{
+        width:200px;
+    }
+
+    .card img{
+        width:150px;
+        height:150px;
+    }
+
+    .card span{
+        font-size:18px;
+        letter-spacing:2px;
+    }
 }
 </style>
 </head>
@@ -105,7 +133,7 @@ body{
 particlesJS("particles-js", {
   particles:{
     number:{
-      value:130,
+      value:100,
       density:{ enable:true, value_area:900 }
     },
     color:{ value:"#00ff99" },
@@ -114,15 +142,10 @@ particlesJS("particles-js", {
     size:{ value:3, random:true },
     line_linked:{
       enable:true,
-      distance:180,
+      distance:170,
       color:"#00ff99",
       opacity:0.9,
-      width:1.6
-    }
-  },
-  interactivity:{
-    events:{
-      onhover:{ enable:true, mode:"grab" }
+      width:1.5
     }
   }
 });
