@@ -1,156 +1,448 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VOID</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:#050a0a;
-    font-family:Arial, sans-serif;
-    overflow:hidden;
-}
-
-/* particles фон */
-#particles-js{
-    position:fixed;
-    inset:0;
-    z-index:0;
-}
-
-/* контейнер */
-.icons{
-    position:relative;
-    z-index:2;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    gap:90px;
-}
-
-/* карточка */
-.card{
-    width:180px;
-    text-decoration:none;
-    text-align:center;
-    transition:0.3s;
-}
-
-/* картинки */
-.card img{
-    width:160px;
-    height:160px;
-    object-fit:contain;
-    background:transparent;
-    transition:0.3s;
-}
-
-/* ZOLO круг */
-.zolo img{
-    border-radius:50%;
-}
-
-/* текст */
-.card span{
-    display:block;
-    margin-top:20px;
-    color:#00ff99;
-    font-size:20px;
-    letter-spacing:3px;
-}
-
-/* hover */
-.card:hover img{
-    transform:scale(1.1);
-    filter:drop-shadow(0 0 22px #00ff99);
-}
-
-/* 📱 адаптив */
-@media (max-width:900px){
-
-    body{
-        overflow:auto;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majestic RolePlay · Вики</title>
+    <!-- Простой сброс стилей и нейтральный шрифт -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+    }
+        body {
+            background-color: #e6e9ef;  /* светлый серо-голубой фон, как на многих форумах */
+            padding: 40px 24px;
+            display: flex;
+            justify-content: center;
+    }
+        .wrapper {
+            max-width: 1300px;
+            width: 100%;
     }
 
-    .icons{
-        flex-direction:column;
-        height:auto;
-        padding:60px 0;
-        gap:60px;
-    }
+        /* --- хедер / название проекта --- */
+        .majestic-header {
+            margin-bottom: 28px;
+        }
+        .majestic-header h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            color: #1e2a3a;
+            border-left: 8px solid #b8860b; /* золотистый акцент */
+            padding-left: 20px;
+            line-height: 1.1;
+            text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+        }
+        .majestic-header h1 small {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #4a5c72;
+            margin-left: 15px;
+        }
 
-    .card{
-        width:200px;
-    }
+        /* --- основная сетка: два главных столбца (контент + сайдбар) --- */
+        .columns {
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+        .main-content {
+            flex: 2.2; /* левая часть шире */
+            min-width: 0;
+        }
+        .sidebar {
+            flex: 1.2; /* правая часть */
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
 
-    .card img{
-        width:150px;
-        height:150px;
-    }
+        /* --- стили карточек / блоков (имитация панелей форума) --- */
+        .panel {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 6px rgba(0,20,40,0.05);
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.03);
+            margin-bottom: 28px;
+        }
+        .panel:last-child {
+            margin-bottom: 0;
+        }
+        .panel-header {
+            background: #f0f3f8;
+            padding: 16px 24px;
+            border-bottom: 1px solid #dbe1ec;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #1f2b38;
+            letter-spacing: -0.2px;
+            display: flex;
+            align-items: center;
+        }
+        .panel-header span.badge {
+            background: #b8860b;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 30px;
+            margin-left: 16px;
+        }
+        .panel-body {
+            padding: 12px 0 12px 0;
+        }
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-bottom: 1px solid #edf1f7;
+            transition: background 0.1s;
+            font-size: 0.98rem;
+        }
+        .list-item:hover {
+            background: #f9fbfd;
+        }
+        .list-item:last-child {
+            border-bottom: none;
+        }
+        .item-title {
+            font-weight: 500;
+            color: #1e2f40;
+        }
+        .item-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #6f7d91;
+            font-size: 0.85rem;
+        }
+        .badge-new {
+            background: #b8860b;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 30px;
+            text-transform: uppercase;
+        }
+        .sub-text {
+            color: #6f7d91;
+            font-size: 0.8rem;
+        }
+        .divider-light {
+            height: 1px;
+            background: #e3e8f0;
+            margin: 8px 24px;
+        }
 
-    .card span{
-        font-size:18px;
-        letter-spacing:2px;
-    }
-}
-</style>
+        /* вложенные подразделы (немного отступа) */
+        .sub-item {
+            padding-left: 48px !important;
+            background-color: #fafcff;
+            font-size: 0.93rem;
+        }
+        .sub-item .item-title {
+            color: #2a3d54;
+        }
+
+        /* --- боковая панель: новые события / новые сообщения --- */
+        .event-list, .message-list {
+            list-style: none;
+        }
+        .event-item, .message-item {
+            padding: 14px 24px;
+            border-bottom: 1px solid #edf1f7;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .event-item:last-child, .message-item:last-child {
+            border-bottom: none;
+        }
+        .event-title {
+            font-weight: 600;
+            color: #16212e;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .event-desc {
+            font-size: 0.85rem;
+            color: #5e6f84;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .event-desc span {
+            background: #f0f3f8;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #2f3f53;
+        }
+        .message-preview {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+        }
+        .message-author {
+            font-weight: 600;
+            color: #0d1b2a;
+        }
+        .message-forum {
+            font-size: 0.75rem;
+            background: #e9eef4;
+            padding: 3px 8px;
+            border-radius: 30px;
+            color: #24425f;
+        }
+        .message-timestamp {
+            color: #7a8b9f;
+            font-size: 0.75rem;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        /* заглушки inline */
+        .timestamp {
+            color: #8a9bb0;
+            font-size: 0.75rem;
+        }
+        .separator {
+            color: #cbd5e1;
+            padding: 0 5px;
+        }
+
+        /* мелкие правки */
+        .subsection-title {
+            font-weight: 500;
+            color: #355;
+            margin-top: 6px;
+            margin-bottom: 2px;
+            padding: 0 24px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #4f658d;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #d9e0eb;
+            margin: 6px 24px;
+        }
+    </style>
 </head>
-
 <body>
+<div class="wrapper">
+    <!-- шапка Majestic -->
+    <div class="majestic-header">
+        <h1>Majestic <small>RolePlay · Wiki / Форум</small></h1>
+    </div>
 
-<div id="particles-js"></div>
+    <!-- колонки: основной блок и правая панель -->
+    <div class="columns">
+        <!-- ЛЕВАЯ ЧАСТЬ (основная) -->
+        <div class="main-content">
+            <!-- Главная / правила -->
+            <div class="panel">
+                <div class="panel-header">
+                    📋 Главная
+                </div>
+                <div class="panel-body">
+                    <!-- Правила проекта Majestic Role Play -->
+                    <div class="list-item">
+                        <span class="item-title">📌 Правила проекта Majestic Role Play</span>
+                        <div class="item-meta">
+                            <span class="badge-new">новое</span>
+                            <span class="timestamp">id: 101</span>
+                        </div>
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">▸ Общие правила проекта</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">▸ Правила криминальных организаций</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">▸ Правила государственных организаций</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">▸ Дополнительные серверные правила</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
 
-<div class="icons">
+                    <hr>
 
-  <a href="cerberus.html" class="card">
-    <img src="cerberus.png">
-    <span>CERBERUS</span>
-  </a>
+                    <!-- Majestic Wiki -->
+                    <div class="list-item">
+                        <span class="item-title">📚 Majestic Wiki</span>
+                        <span class="sub-text">информация о проекте и системах</span>
+                    </div>
 
-  <a href="zolo.html" class="card zolo">
-    <img src="https://cdn.itemsatis.com/uploads/post_images/zolo-cheat-8-gunluk-key-2890864.png">
-    <span>ZOLO</span>
-  </a>
+                    <hr>
 
-  <a href="star.html" class="card">
-    <img src="https://up-game.pro/wp-content/webp-express/webp-images/uploads/2025/03/Star-для-PUBG-Mobile-IOS-1-388x218.jpg.webp">
-    <span>STAR</span>
-  </a>
+                    <!-- Majestic RolePlay | New York -->
+                    <div class="list-item" style="font-weight: 600; color:#003153;">
+                        🗽 Majestic RolePlay | New York
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">Организации</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item" style="padding-left: 72px !important; background-color: #f5f8fe;">
+                        <span class="item-title">Подразделы</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">Жалобы и заявления</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item" style="padding-left: 72px !important; background-color: #f5f8fe;">
+                        <span class="item-title">Подразделы</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
 
-</div>
+                    <hr>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+                    <!-- Majestic RolePlay | Detroit -->
+                    <div class="list-item" style="font-weight: 600; color:#003153;">
+                        🏙️ Majestic RolePlay | Detroit
+                    </div>
+                    <div class="list-item sub-item">
+                        <span class="item-title">Организации</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                    <div class="list-item sub-item" style="padding-left: 72px !important; background-color: #f5f8fe;">
+                        <span class="item-title">Подразделы</span>
+                        <div class="item-meta"><span class="badge-new">новое</span></div>
+                    </div>
+                </div> <!-- end panel-body -->
+            </div> <!-- end panel Главная -->
+        </div> <!-- end main-content -->
 
-<script>
-particlesJS("particles-js", {
-  particles:{
-    number:{
-      value:100,
-      density:{ enable:true, value_area:900 }
-    },
-    color:{ value:"#00ff99" },
-    shape:{ type:"circle" },
-    opacity:{ value:0.8 },
-    size:{ value:3, random:true },
-    line_linked:{
-      enable:true,
-      distance:170,
-      color:"#00ff99",
-      opacity:0.9,
-      width:1.5
-    }
-  }
-});
-</script>
+        <!-- ПРАВАЯ КОЛОНКА (сайдбар) -->
+        <div class="sidebar">
+            <!-- Новые события -->
+            <div class="panel">
+                <div class="panel-header">
+                    🔔 Новые события
+                </div>
+                <div class="panel-body" style="padding: 0;">
+                    <div class="event-item">
+                        <div class="event-title">
+                            Первая для лидеров
+                            <span class="badge-new">новое</span>
+                        </div>
+                        <div class="event-desc">
+                            <span>Понедельник в 13:19</span> · ар...
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-title">
+                            Признак криминальных
+                            <span class="badge-new">новое</span>
+                        </div>
+                        <div class="event-desc">
+                            <span>Понедельник в 21:12</span> · ар...
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-title">
+                            Правила рейдов
+                            <span class="badge-new">новое</span>
+                        </div>
+                        <div class="event-desc">
+                            <span>Понедельник в 13:19</span> · ар...
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-title">
+                            Правила нападения / о...
+                            <span class="badge-new">новое</span>
+                        </div>
+                        <div class="event-desc">
+                            <span>Понедельник в 13:02</span> · Ар...
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-title">
+                            Исковое заявление №2
+                            <span class="badge-new">новое</span>
+                        </div>
+                        <div class="event-desc">
+                            <span>Сегодня в 06:06</span> · nisotiva
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Новые сообщения -->
+            <div class="panel">
+                <div class="panel-header">
+                    💬 Новые сообщения
+                </div>
+                <div class="panel-body" style="padding: 0;">
+                    <!-- 1. Заявление о разбане -->
+                    <div class="message-item">
+                        <div class="message-preview">
+                            <span class="message-author">Заявление о разбаве</span>
+                            <span class="message-forum">Судьба</span>
+                        </div>
+                        <div class="message-timestamp">
+                            <span>Минуту назад · StrongF</span>
+                        </div>
+                    </div>
+                    <!-- 2. Х3 ваше как эт назвать -->
+                    <div class="message-item">
+                        <div class="message-preview">
+                            <span class="message-author">Х3 ваше как эт назвать</span>
+                            <span class="message-forum">Жалобы на игроков</span>
+                        </div>
+                        <div class="message-timestamp">
+                            <span>Последнее: corpuscula · Только что</span>
+                        </div>
+                    </div>
+                    <!-- 3. Передача делопроизводства (длинный) -->
+                    <div class="message-item">
+                        <div class="message-preview">
+                            <span class="message-author">Передача делопроизводства</span>
+                            <span class="message-forum">Судебная власть</span>
+                        </div>
+                        <div class="message-timestamp">
+                            <span>Банк, Кирилл · Другие</span>
+                            <span style="margin-left: auto;">Последнее: Djohn Silver · Только что</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Для полной симметрии можно добавить микро-блок "сейчас на форуме", но по скрину и так достаточно -->
+            <div style="background: #f0f3f8; border-radius: 14px; padding: 14px 20px; border: 1px solid #dbe1ec; color: #2a405c; font-size:0.9rem;">
+                ⚡ Статичная версия · точная копия макета. Весь функционал — только визуально.
+            </div>
+        </div> <!-- end sidebar -->
+    </div> <!-- end columns -->
+
+    <!-- нижний блок (по желанию, повтор ссылок) — на скрине нижней части нет, но для порядку можно оставить мини-футер -->
+    <div style="margin-top: 40px; border-top: 1px solid #cdd6e4; padding-top: 20px; color: #6f7d91; font-size: 0.85rem; display: flex; gap: 40px; flex-wrap: wrap;">
+        <span>📌 Majestic RolePlay · неофициальная статичная копия</span>
+        <span>все метки «Новое» и подписи сохранены</span>
+    </div>
+</div> <!-- end wrapper -->
 </body>
-</html>
 </html>
