@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CERBERUS</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050a0a;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+/* фон */
+#particles-js{
+    position:fixed;
+    inset:0;
+    z-index:0;
+}
+
+/* контейнер кнопок */
+.top-buttons{
+    position:fixed;
+    top:25px;
+    left:25px;
+    z-index:3;
+    display:flex;
+    gap:20px;
+}
+
+/* стиль кнопок */
+.top-buttons a{
+    padding:12px 25px;
+    background:transparent;
+    border:2px solid #00ff99;
+    color:#00ff99;
+    font-size:14px;
+    letter-spacing:2px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.top-buttons a:hover{
+    background:#00ff99;
+    color:#050a0a;
+    box-shadow:0 0 20px #00ff99;
+}
+
+/* видео */
+.video-container{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.video-container iframe{
+    width:900px;
+    height:500px;
+    border:none;
+    border-radius:15px;
+    box-shadow:0 0 40px rgba(0,255,153,0.4);
+}
+
+/* адаптив */
+@media(max-width:1000px){
+    .video-container iframe{
+        width:90%;
+        height:400px;
+    }
+
+    .top-buttons{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<div class="top-buttons">
+    <a href="https://biianhlong.io.vn/update/Loader4.2.rar" download>
+        DOWNLOAD LOADER
+    </a>
+
+    <a href="https://biianhlong.io.vn/apkobb">
+        DOWNLOAD OBB
+    </a>
+</div>
+
+<div class="video-container">
+    <iframe 
+        src="https://drive.google.com/file/d/1XCsPAq7C4jEd5udprWTFJQEIvOZzkNNw/preview"
+        allow="autoplay">
+    </iframe>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+  particles:{
+    number:{ value:110, density:{ enable:true, value_area:900 } },
+    color:{ value:"#00ff99" },
+    shape:{ type:"circle" },
+    opacity:{ value:0.85 },
+    size:{ value:3, random:true },
+    line_linked:{ enable:true, distance:170, color:"#00ff99", opacity:0.9, width:1.5 },
+    move:{ enable:true, speed:1.2 }
+  },
+  interactivity:{
+    events:{ onhover:{ enable:true, mode:"grab" }, resize:true },
+    modes:{ grab:{ distance:220, line_linked:{ opacity:1 } } }
+  },
+  retina_detect:true
+});
+</script>
+
+</body>
+</html>
