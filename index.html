@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CERBERUS</title>
+<title>VOID</title>
 
 <style>
 *{
@@ -18,69 +18,87 @@ body{
     overflow:hidden;
 }
 
-/* фон */
+/* particles фон */
 #particles-js{
     position:fixed;
     inset:0;
     z-index:0;
 }
 
-/* контейнер кнопок */
-.top-buttons{
-    position:fixed;
-    top:25px;
-    left:25px;
-    z-index:3;
-    display:flex;
-    gap:20px;
-}
-
-/* стиль кнопок */
-.top-buttons a{
-    padding:12px 25px;
-    background:transparent;
-    border:2px solid #00ff99;
-    color:#00ff99;
-    font-size:14px;
-    letter-spacing:2px;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.top-buttons a:hover{
-    background:#00ff99;
-    color:#050a0a;
-    box-shadow:0 0 20px #00ff99;
-}
-
-/* видео */
-.video-container{
+/* контейнер */
+.icons{
     position:relative;
     z-index:2;
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
+    gap:90px;
 }
 
-.video-container iframe{
-    width:900px;
-    height:500px;
-    border:none;
-    border-radius:15px;
-    box-shadow:0 0 40px rgba(0,255,153,0.4);
+/* карточка */
+.card{
+    width:180px;
+    text-decoration:none;
+    text-align:center;
+    transition:0.3s;
 }
 
-/* адаптив */
-@media(max-width:1000px){
-    .video-container iframe{
-        width:90%;
-        height:400px;
+/* картинки */
+.card img{
+    width:160px;
+    height:160px;
+    object-fit:contain;
+    background:transparent;
+    transition:0.3s;
+}
+
+/* ZOLO круг */
+.zolo img{
+    border-radius:50%;
+}
+
+/* текст */
+.card span{
+    display:block;
+    margin-top:20px;
+    color:#00ff99;
+    font-size:20px;
+    letter-spacing:3px;
+}
+
+/* hover */
+.card:hover img{
+    transform:scale(1.1);
+    filter:drop-shadow(0 0 22px #00ff99);
+}
+
+/* 📱 адаптив */
+@media (max-width:900px){
+
+    body{
+        overflow:auto;
     }
 
-    .top-buttons{
+    .icons{
         flex-direction:column;
-        gap:10px;
+        height:auto;
+        padding:60px 0;
+        gap:60px;
+    }
+
+    .card{
+        width:200px;
+    }
+
+    .card img{
+        width:150px;
+        height:150px;
+    }
+
+    .card span{
+        font-size:18px;
+        letter-spacing:2px;
     }
 }
 </style>
@@ -90,21 +108,23 @@ body{
 
 <div id="particles-js"></div>
 
-<div class="top-buttons">
-    <a href="https://biianhlong.io.vn/update/Loader4.2.rar" download>
-        DOWNLOAD LOADER
-    </a>
+<div class="icons">
 
-    <a href="https://biianhlong.io.vn/apkobb">
-        DOWNLOAD OBB
-    </a>
-</div>
+  <a href="cerberus.html" class="card">
+    <img src="cerberus.png">
+    <span>CERBERUS</span>
+  </a>
 
-<div class="video-container">
-    <iframe 
-        src="https://drive.google.com/file/d/1XCsPAq7C4jEd5udprWTFJQEIvOZzkNNw/preview"
-        allow="autoplay">
-    </iframe>
+  <a href="zolo.html" class="card zolo">
+    <img src="https://cdn.itemsatis.com/uploads/post_images/zolo-cheat-8-gunluk-key-2890864.png">
+    <span>ZOLO</span>
+  </a>
+
+  <a href="star.html" class="card">
+    <img src="https://up-game.pro/wp-content/webp-express/webp-images/uploads/2025/03/Star-для-PUBG-Mobile-IOS-1-388x218.jpg.webp">
+    <span>STAR</span>
+  </a>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -112,21 +132,25 @@ body{
 <script>
 particlesJS("particles-js", {
   particles:{
-    number:{ value:110, density:{ enable:true, value_area:900 } },
+    number:{
+      value:100,
+      density:{ enable:true, value_area:900 }
+    },
     color:{ value:"#00ff99" },
     shape:{ type:"circle" },
-    opacity:{ value:0.85 },
+    opacity:{ value:0.8 },
     size:{ value:3, random:true },
-    line_linked:{ enable:true, distance:170, color:"#00ff99", opacity:0.9, width:1.5 },
-    move:{ enable:true, speed:1.2 }
-  },
-  interactivity:{
-    events:{ onhover:{ enable:true, mode:"grab" }, resize:true },
-    modes:{ grab:{ distance:220, line_linked:{ opacity:1 } } }
-  },
-  retina_detect:true
+    line_linked:{
+      enable:true,
+      distance:170,
+      color:"#00ff99",
+      opacity:0.9,
+      width:1.5
+    }
+  }
 });
 </script>
 
 </body>
+</html>
 </html>
